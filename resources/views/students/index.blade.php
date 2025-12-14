@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800">
-            Courses
+            Students
         </h2>
     </x-slot>
 
@@ -18,30 +18,31 @@
             </div>
         @endif
 
-        <a href="{{ route('courses.create') }}"
+        <a href="{{ route('students.create') }}"
            style="background-color: #2563eb; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">
-            + Add Course
+            + Add Student
         </a>
 
         <div style="margin-top: 24px;">
-            @foreach($courses as $course)
+            @foreach($students as $student)
                 <div style="background: white; padding: 20px; border: 2px solid #d1d5db; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                    <h3 style="font-size: 20px; font-weight: bold; color: #1f2937; margin-bottom: 8px;">{{ $course->title }}</h3>
-                    <p style="color: #6b7280; margin-bottom: 12px;">{{ $course->description }}</p>
-                    <p style="font-size: 14px; color: #374151;"><strong>Instructor:</strong> {{ $course->instructor }}</p>
-                    <p style="font-size: 14px; color: #374151; margin-bottom: 16px;"><strong>Duration:</strong> {{ $course->duration }} weeks</p>
+                    <h3 style="font-size: 20px; font-weight: bold; color: #1f2937; margin-bottom: 8px;">{{ $student->name }}</h3>
+                    <p style="font-size: 14px; color: #374151;"><strong>Email:</strong> {{ $student->email }}</p>
+                    <p style="font-size: 14px; color: #374151;"><strong>Phone:</strong> {{ $student->phone }}</p>
+                    <p style="font-size: 14px; color: #374151;"><strong>Roll Number:</strong> {{ $student->roll_number }}</p>
+                    <p style="font-size: 14px; color: #374151; margin-bottom: 16px;"><strong>Program:</strong> {{ $student->program }}</p>
                     
                     <div style="display: flex; gap: 10px;">
                         <!-- Edit Button -->
-                        <a href="{{ route('courses.edit', $course->id) }}" 
+                        <a href="{{ route('students.edit', $student->id) }}" 
                            style="background-color: #10b981; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block;">
                             Edit
                         </a>
                         
                         <!-- Delete Button -->
-                        <form action="{{ route('courses.destroy', $course->id) }}" 
+                        <form action="{{ route('students.destroy', $student->id) }}" 
                               method="POST" 
-                              onsubmit="return confirm('Are you sure you want to delete this course?');"
+                              onsubmit="return confirm('Are you sure you want to delete this student?');"
                               style="display: inline-block; margin: 0;">
                             @csrf
                             @method('DELETE')

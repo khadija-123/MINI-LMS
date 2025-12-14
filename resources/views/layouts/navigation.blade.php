@@ -11,11 +11,23 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+        {{ __('Dashboard') }}
+    </x-nav-link>
+    
+    <x-nav-link :href="route('courses.index')" :active="request()->routeIs('courses.*')">
+        {{ __('Courses') }}
+    </x-nav-link>
+    
+    <x-nav-link :href="route('teachers.index')" :active="request()->routeIs('teachers.*')">
+    {{ __('Teachers') }}
+</x-nav-link>
+
+<x-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
+    {{ __('Students') }}
+</x-nav-link>
+</div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -70,6 +82,16 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('courses.index')" :active="request()->routeIs('courses.*')">
+    {{ __('Courses') }}
+</x-responsive-nav-link>
+
+<x-responsive-nav-link :href="route('teachers.index')" :active="request()->routeIs('teachers.*')">
+    {{ __('Teachers') }}
+</x-responsive-nav-link>
+<x-responsive-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
+    {{ __('Students') }}
+</x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

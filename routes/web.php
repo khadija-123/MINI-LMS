@@ -3,9 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('courses', CourseController::class);
+    Route::resource('teachers', TeacherController::class);
+    Route::resource('students', StudentController::class);
 });
 
 
